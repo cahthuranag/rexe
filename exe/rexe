@@ -99,7 +99,7 @@ class Rexe
           json:    ->(string)  { JSON.parse(string) },
           marshal: ->(string)  { Marshal.load(string) },
           none:    ->(string)  { string },
-          yaml:    ->(string)  { YAML.load(string) },
+          yaml:    ->(string)  { YAML.safe_load(string, permitted_classes: [Symbol]) },
       }
     end
 
